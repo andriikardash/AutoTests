@@ -1,11 +1,13 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+from home_page import HomePage
 
 
 
 def test_epam_title(driver):
-    driver.get('https://www.epam.com/')
-    title = 'EPAM | Software Engineering & Product Development Services'
-    page_title = driver.title
-    assert page_title == title
-    driver.quit()
+    home = HomePage()
+    home.nav_to_epam_page()
+    TITLE = 'EPAM | Software Engineering & Product Development Services'
+    assert home.get_title() == TITLE
+    
+#def test_dark_light_mode(driver):
+#    driver.get('https://www.epam.com/')
