@@ -27,4 +27,12 @@ def test_contact_required_fields(driver):
     contact.nav_to_epam_contact_page()
     contact.is_contact_fields_required()
 
+
+def test_company_logo(driver):
+    epam_url = 'https://www.epam.com/'    
+    about = ContactPage()
+    about.nav_to_epam_about_page()
+    about.click_epam_logo_button()
+    url = about.get_current_url()
+    assert epam_url == url
     

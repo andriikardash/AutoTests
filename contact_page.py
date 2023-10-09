@@ -22,3 +22,13 @@ class ContactPage(HomePage):
 
     def nav_to_epam_contact_page(self):
         self.driver.get('https://www.epam.com/about/who-we-are/contact')
+        
+    def nav_to_epam_about_page(self):
+        self.driver.get('https://www.epam.com/about')
+        
+    def click_epam_logo_button(self):
+        self.logo_btn = self.driver.find_element(By.XPATH, '//*[@id="wrapper"]/div[2]/div[2]/div/div/header/div/div/a[1]').click()
+        
+    def get_current_url(self):
+        self.new_url = self.driver.current_url
+        return self.new_url
