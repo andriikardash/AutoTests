@@ -16,6 +16,14 @@ def test_dark_light_mode(driver):
     home.nav_to_epam_page()
     home.check_header_background_color()
     
+
+#Test 3 can't click at ukr_lang button
+    """
+def test_change_language_to_ukr(driver):
+    global_btn = driver.find_element(By.XPATH, '//*[@id="wrapper"]/div[2]/div[1]/header/div/div/ul/li[2]/div/div/button').click()
+    ukr_language = driver.find_element(By.XPATH, '//*[@id="wrapper"]/div[2]/div[1]/header/div/div/ul/li[2]/div/nav/ul/li[6]/a').click()
+    """
+
 def test_policies_list(driver):
     home = HomePage()
     home.nav_to_epam_page()
@@ -36,3 +44,16 @@ def test_company_logo(driver):
     url = about.get_current_url()
     assert epam_url == url
     
+
+# Test 9 does not work
+"""
+download_directory = "C:/Users/Andrii_Kardash/Downloads"
+options = webdriver.ChromeOptions()
+prefs = {"download.default_directory": download_directory}
+options.add_experimental_option("prefs", prefs)
+driver = webdriver.Chrome(options=options)
+driver.maximize_window()
+driver.get('https://www.epam.com/about')
+
+download_file = driver.find_element(By.XPATH, '//*[@id="main"]/div[1]/div[5]/section/div[2]/div/div/div[1]/div/div[3]/div/a').click()
+"""

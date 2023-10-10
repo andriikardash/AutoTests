@@ -17,7 +17,7 @@ class ContactPage(HomePage):
         self.is_phone_required = 'required' in self.phone.get_attribute("outerHTML")
         self.is_drop_down_required = 'required' in self.drop_down.get_attribute("outerHTML")
         self.is_policies_checkbox_required = 'required' in self.policies_checkbox.get_attribute("outerHTML")
-        assert self.is_first_name_required and self.is_last_name_required
+        assert self.is_first_name_required and self.is_last_name_required and self.is_email_required and self.is_email_required and self.is_phone_required and self.is_drop_down_required and self.is_policies_checkbox_required
         
 
     def nav_to_epam_contact_page(self):
