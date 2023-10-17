@@ -1,3 +1,4 @@
+from statistics import harmonic_mean
 from selenium import webdriver
 from home_page import HomePage
 from selenium.webdriver.common.by import By
@@ -17,17 +18,32 @@ def test_dark_light_mode(driver):
     home.check_header_background_color()
     
 
-#Test 3 can't click at ukr_lang button
-    """
 def test_change_language_to_ukr(driver):
-    global_btn = driver.find_element(By.XPATH, '//*[@id="wrapper"]/div[2]/div[1]/header/div/div/ul/li[2]/div/div/button').click()
-    ukr_language = driver.find_element(By.XPATH, '//*[@id="wrapper"]/div[2]/div[1]/header/div/div/ul/li[2]/div/nav/ul/li[6]/a').click()
-    """
+    ukr_url = 'https://careers.epam.ua/'
+    home = HomePage()
+    home.nav_to_epam_page()
+    home.go_to_urk_page()
+    url = home.get_current_url()
+    assert ukr_url == url
+
 
 def test_policies_list(driver):
     home = HomePage()
     home.nav_to_epam_page()
     home.check_policies_link_available()
+
+def test_location_region(driver):
+    home = HomePage()
+    home.nav_to_epam_page()
+    home.check_region_location()
+
+
+    
+
+def test_search_func(driver):
+    home = HomePage()
+    home.nav_to_epam_page()
+    home.check_search_results()
 
 
 def test_contact_required_fields(driver):  
@@ -43,9 +59,9 @@ def test_company_logo(driver):
     about.click_epam_logo_button()
     url = about.get_current_url()
     assert epam_url == url
-    
 
-# Test 9 does not work
+
+# Test 9 does not work. Have no clue
 """
 download_directory = "C:/Users/Andrii_Kardash/Downloads"
 options = webdriver.ChromeOptions()
