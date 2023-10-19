@@ -34,3 +34,47 @@ class Petstore:
         }
         response = requests.post(post_user_list, data=json.dumps(list_of_users), headers=headers)
         return response
+    
+    def log_user_out(self):
+        get_log_out = f"{self.base_url}/user/logout"
+        headers = {
+          'accept': 'application/json'
+        }
+        response = requests.get(get_log_out, headers=headers)
+        return response
+    
+    def add_new_pet(self, new_pet):
+        post_new_pet = f"{self.base_url}/pet"
+        headers = {
+          'accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+        response = requests.post(post_new_pet, data=json.dumps(new_pet), headers=headers)
+        return response
+        
+
+    def load_pet_image(self, petId, files):
+        post_pet_img = f"{self.base_url}/pet/{petId}/uploadImage"
+        headers = {
+          'accept': 'application/json',
+          'Content-Type': 'multipart/form-data'
+        }
+        response = requests.post(post_pet_img, files=files, headers=headers)
+        return response
+    
+    def update_pet(self, pet_update):
+        put_update_pet = f"{self.base_url}/pet"
+        headers = {
+          'accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+        response = requests.put(put_update_pet, data=json.dumps(pet_update), headers=headers)
+        return response
+    
+    def delete_pet(self, petId):
+        delete_pet = f"{self.base_url}/pet/{petId}"
+        headers = {
+          'accept': 'application/json'
+        }
+        response = requests.delete(delete_pet, headers=headers)
+        return response

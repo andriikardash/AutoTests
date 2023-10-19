@@ -39,3 +39,32 @@ list_of_users = [
   }
 ]
     
+
+new_pet = {
+    "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+    }
+"""
+img_path = "C:\J\download.jpg"
+with open(img_path, "rb") as img:
+    files = {'file': ('download.jpg', img)}
+    """
+pet_update = {
+    "id": 0,
+    "name": "Mukha",
+  "status": "sold"
+    }
