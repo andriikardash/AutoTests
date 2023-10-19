@@ -9,3 +9,7 @@ def test_create_new_user(api):
 def test_user_login(api):
     response = api.user_login(data.user_login)
     assert response.status_code == 200, 'user is not created'
+    
+def test_create_list_of_users(api):
+    response = api.create_list_of_users(data.list_of_users)
+    assert response.status_code == 200, 'users are not created'

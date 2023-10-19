@@ -14,8 +14,7 @@ user_login = {
     "password": "Welcome1"
     }
 
-list_of_users = {
-    [
+list_of_users = [
   {
     "id": 0,
     "username": "Petro",
@@ -25,9 +24,9 @@ list_of_users = {
     "password": "string",
     "phone": "string",
     "userStatus": 0
-  }
-],
-[
+  },
+
+
   {
     "id": 1,
     "username": "Ivan",
@@ -39,4 +38,4 @@ list_of_users = {
     "userStatus": 1
   }
 ]
-    }
+    
