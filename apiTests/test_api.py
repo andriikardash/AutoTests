@@ -6,8 +6,7 @@ import json
 def test_create_new_user(api):
     response = api.create_user(data.user_data)
     assert response.status_code == 200, 'response is not 200'
-    #Receiving Key error trying to check response data
-    #assert response.json()['username'] == data.user_data['username']
+    assert response.json()['type'] == 'unknown'
     
 def test_user_login(api):
     response = api.user_login(data.user_login)
