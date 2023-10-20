@@ -1,2 +1,4 @@
-user_email = 'test+4@gmail.com'
+firstname = "Andrii"
+lastname = 'test'
+user_email = 'test+16@gmail.com'
 password = 'Welcome1'
