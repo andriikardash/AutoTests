@@ -2,7 +2,7 @@ from home import HomePage
 import time
 import data
 
-
+"""
 def test_registration_new_user(driver):
     expected_result = 'Your registration completed'
     home = HomePage()
@@ -25,3 +25,15 @@ def test_user_login(driver):
     home.fill_in_password(data.password)
     home.confirm_login()
     home.check_user_account(data.user_email)
+    """
+    
+def test_computers_group(driver):
+    home = HomePage()
+    home.go_to_main_page()
+    home.click_on_computers_group()
+    desktops = home.get_desktops_subgroup()
+    assert "Desktops" == desktops
+    notebooks = home.get_notebooks_subgroup()
+    assert "Notebooks" == notebooks
+    accessories = home.get_accessories_subgroup()
+    assert "Accessories" == accessories

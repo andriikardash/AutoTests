@@ -17,6 +17,11 @@ class HomePage(object):
     LOGIN_BUTTON = (By.CLASS_NAME, 'ico-login')
     SUBMIT_LOGIN_BUTTON = (By.XPATH, '//input[@type="submit" and @value="Log in"]')
     USER_ACCOUNT = (By.XPATH, '//a[@class="account"]')
+    COMPUTERS = (By.LINK_TEXT, 'Computers')
+    COMPUTERS_SUBGROUP = (By.XPATH, "//a[@href='/computers']/following-sibling::ul[@class='sublist']")
+    DESKTOPS = (By.PARTIAL_LINK_TEXT, 'Desktops')
+    NOTEBOOKS = (By.PARTIAL_LINK_TEXT, 'Notebooks')
+    ACCESSORIES = (By.PARTIAL_LINK_TEXT, 'Accessories')
 
 
     def __init__(self):
@@ -69,3 +74,16 @@ class HomePage(object):
     def check_user_account(self, user_email):
         result = self.wait_for(self.USER_ACCOUNT).text
         assert result == user_email
+        
+    def click_on_computers_group(self):
+        self.wait_for(self.COMPUTERS).click()
+        
+        
+    def get_desktops_subgroup(self):
+        return self.wait_for(self.DESKTOPS).text
+    
+    def get_notebooks_subgroup(self):
+        return self.wait_for(self.NOTEBOOKS).text
+
+    def get_accessories_subgroup(self):
+        return self.wait_for(self.ACCESSORIES).text
