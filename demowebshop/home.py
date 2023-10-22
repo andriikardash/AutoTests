@@ -35,6 +35,10 @@ class HomePage(object):
     ADD_WISHLIST_BUTTON = (By.CSS_SELECTOR, '#add-to-wishlist-button-2')
     POP_UP = (By.XPATH, '//p[@class="content"]')
     ADD_TO_CARD_BUTTON = (By.CSS_SELECTOR, '#add-to-cart-button-2')
+    SHOPPING_CART = (By.PARTIAL_LINK_TEXT, 'Shopping cart')
+    REMOVE_CHECKBOX = (By.XPATH, '//*[@name="removefromcart"]')
+    UPDATE_SHOPPING_CART = (By.NAME, 'updatecart')
+    EMPTY_CART = (By.CLASS_NAME, 'page-body')
 
 
     def __init__(self):
@@ -147,3 +151,16 @@ class HomePage(object):
         
     def click_on_add_to_card_button(self):
         self.wait_for(self.ADD_TO_CARD_BUTTON).click()
+        
+    def nav_to_shopping_cart(self):
+        self.wait_for(self.SHOPPING_CART).click()
+        
+    def click_on_remove_checkbox(self):
+        self.wait_for(self.REMOVE_CHECKBOX).click()
+        
+    def click_on_update_shopping_cart(self):
+        self.find(self.UPDATE_SHOPPING_CART).click()
+
+    def check_shopping_cart_is_empty(self, expected):
+        res = self.wait_for(self.EMPTY_CART).text
+        assert expected == res

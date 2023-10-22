@@ -1,3 +1,4 @@
+from unittest import expectedFailure
 from home import HomePage
 import time
 from selenium.webdriver.common.by import By
@@ -73,7 +74,7 @@ def test_add_to_wishlist(driver):
     home.click_on_add_wishlist_button()
     home.check_pop_up(expected)
     
-def test_add_to_card(driver):
+def test_add_to_cart(driver):
     home = HomePage()
     expected = 'The product has been added to your shopping cart'
     home.go_to_main_page()
@@ -85,3 +86,13 @@ def test_add_to_card(driver):
     home.check_pop_up(expected)
     
     """
+    
+def test_remove_item_from_cart(driver):
+    expected = 'Your Shopping Cart is empty!'  
+    home = HomePage()
+    home.go_to_main_page()
+    home.log_in_as_a_user()
+    home.nav_to_shopping_cart()
+    home.click_on_remove_checkbox()
+    home.click_on_update_shopping_cart()
+    home.check_shopping_cart_is_empty(expected)
