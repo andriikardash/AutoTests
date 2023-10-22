@@ -39,6 +39,18 @@ class HomePage(object):
     REMOVE_CHECKBOX = (By.XPATH, '//*[@name="removefromcart"]')
     UPDATE_SHOPPING_CART = (By.NAME, 'updatecart')
     EMPTY_CART = (By.CLASS_NAME, 'page-body')
+    POLICY_CHECKBOX = (By.ID, 'termsofservice')
+    CHECKOUT_BUTTON = (By.ID, 'checkout')
+    COUNTRY_CHECKBOX = (By.ID, 'BillingNewAddress_CountryId')
+    CITY = (By.ID, 'BillingNewAddress_City')
+    ADDRESS1 = (By.ID, 'BillingNewAddress_Address1')
+    ZIP_CODE = (By.ID, 'BillingNewAddress_ZipPostalCode')
+    PHONE_NUMBER = (By.ID, 'BillingNewAddress_PhoneNumber')
+    CONTINUE_BUTTON_BILLING_ADDRESS = (By.CSS_SELECTOR, '.button-1.new-address-next-step-button')
+    CONTINUE_BUTTON_PAYMENT_METHOD = (By.XPATH, "//*[contains(@class, 'button-1') and contains(@class, 'payment-method-next-step-button')]")
+    CONTINUE_BUTTON_PAYMENT_INFO = (By.CSS_SELECTOR, '.button-1.payment-info-next-step-button')
+    CONFIRM_ORDER_BUTTON = (By.CSS_SELECTOR, '.button-1.confirm-order-next-step-button')
+    ORDER_COMPLETED = (By.CSS_SELECTOR, '.order-completed')
 
 
     def __init__(self):
@@ -164,3 +176,41 @@ class HomePage(object):
     def check_shopping_cart_is_empty(self, expected):
         res = self.wait_for(self.EMPTY_CART).text
         assert expected == res
+        
+    def click_on_policy_checkbox(self):
+        self.wait_for(self.POLICY_CHECKBOX).click()
+        
+    def click_on_checkout_button(self):
+        self.find(self.CHECKOUT_BUTTON).click()
+        
+    def select_country(self, option):
+        country = Select(self.wait_for(self.COUNTRY_CHECKBOX))
+        country.select_by_index(option)
+        
+    def fill_in_city(self, city):
+        self.find(self.CITY).send_keys(city)
+        
+    def fill_in_address1(self, address1):
+        self.find(self.ADDRESS1).send_keys(address1)
+        
+    def fill_in_zip(self, zip):
+        self.find(self.ZIP_CODE).send_keys(zip)
+        
+    def fill_in_phone(self, phone):
+        self.find(self.PHONE_NUMBER).send_keys(phone)
+        
+    def click_on_confirm_continue_billing_address_button(self):
+        self.wait_for(self.CONTINUE_BUTTON_BILLING_ADDRESS).click()
+        
+    def click_on_confirm_continue_payment_method_button(self):
+        self.wait_for(self.CONTINUE_BUTTON_PAYMENT_METHOD).click()
+            
+    def click_on_confirm_continue_payment_info_button(self):
+        self.wait_for(self.CONTINUE_BUTTON_PAYMENT_INFO).click()
+        
+    def click_on_confirm_order_button(self):
+        self.wait_for(self.CONFIRM_ORDER_BUTTON).click()
+            
+    def check_order_completed(self, expected):
+        res = self.wait_for(self.ORDER_COMPLETED).text
+        assert expected in res

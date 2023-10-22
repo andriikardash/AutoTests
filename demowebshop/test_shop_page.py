@@ -85,7 +85,7 @@ def test_add_to_cart(driver):
     home.click_on_add_to_card_button()
     home.check_pop_up(expected)
     
-    """
+
     
 def test_remove_item_from_cart(driver):
     expected = 'Your Shopping Cart is empty!'  
@@ -96,3 +96,28 @@ def test_remove_item_from_cart(driver):
     home.click_on_remove_checkbox()
     home.click_on_update_shopping_cart()
     home.check_shopping_cart_is_empty(expected)
+    """
+    
+def test_checkout_item(driver):
+    home = HomePage()
+    expected = 'Your order has been successfully processed!'
+    home.go_to_main_page()
+    home.log_in_as_a_user()
+    home.nav_to_gift_cards()
+    home.fill_in_recipient_name(data.recipient_name)
+    home.fill_in_recipient_email(data.recipient_email)
+    home.click_on_add_to_card_button()
+    home.nav_to_shopping_cart()
+    home.click_on_policy_checkbox()
+    home.click_on_checkout_button()
+    #home.select_country(3)
+    #home.fill_in_city(data.city)
+    #home.fill_in_address1(data.address1)
+    #home.fill_in_zip(data.zip_code)
+    #home.fill_in_phone(data.phone)
+    home.click_on_confirm_continue_billing_address_button()
+    home.click_on_confirm_continue_payment_method_button()
+    home.click_on_confirm_continue_payment_info_button()
+    home.click_on_confirm_order_button()
+    home.check_order_completed(expected)
+    time.sleep(3)
