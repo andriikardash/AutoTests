@@ -5,15 +5,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-home = webdriver.Chrome()
-home.maximize_window()
-ex = 'Your registration completed'
-home.get("https://demowebshop.tricentis.com/")
-time.sleep(3)
-home.find_element(By.LINK_TEXT, 'Computers').click()
-res = home.find_element(By.XPATH, "//a[@href='/computers']/following-sibling::ul[@class='sublist']").text
-print(res)
+driver = webdriver.Chrome()
+driver.maximize_window()
+driver.get("https://demowebshop.tricentis.com/apparel-shoes")
+time.sleep(2)
+
+
+el = driver.find_elements(By.XPATH, '//h2[@class="product-title"]')
+count = len(el)
+print(count)
+assert 8 == count
 
 
 
-home.quit()
+
+
+driver.quit()
