@@ -4,7 +4,7 @@ import time
 from selenium.webdriver.common.by import By
 import data
 
-"""
+
 def test_registration_new_user(driver):
     expected_result = 'Your registration completed'
     home = HomePage()
@@ -96,7 +96,7 @@ def test_remove_item_from_cart(driver):
     home.click_on_remove_checkbox()
     home.click_on_update_shopping_cart()
     home.check_shopping_cart_is_empty(expected)
-    """
+
     
 def test_checkout_item(driver):
     home = HomePage()
@@ -110,11 +110,6 @@ def test_checkout_item(driver):
     home.nav_to_shopping_cart()
     home.click_on_policy_checkbox()
     home.click_on_checkout_button()
-    #home.select_country(3)
-    #home.fill_in_city(data.city)
-    #home.fill_in_address1(data.address1)
-    #home.fill_in_zip(data.zip_code)
-    #home.fill_in_phone(data.phone)
     home.click_on_confirm_continue_billing_address_button()
     home.click_on_confirm_continue_payment_method_button()
     home.click_on_confirm_continue_payment_info_button()

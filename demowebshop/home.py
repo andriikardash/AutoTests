@@ -47,7 +47,7 @@ class HomePage(object):
     ZIP_CODE = (By.ID, 'BillingNewAddress_ZipPostalCode')
     PHONE_NUMBER = (By.ID, 'BillingNewAddress_PhoneNumber')
     CONTINUE_BUTTON_BILLING_ADDRESS = (By.CSS_SELECTOR, '.button-1.new-address-next-step-button')
-    CONTINUE_BUTTON_PAYMENT_METHOD = (By.XPATH, "//*[contains(@class, 'button-1') and contains(@class, 'payment-method-next-step-button')]")
+    CONTINUE_BUTTON_PAYMENT_METHOD = (By.XPATH, '//*[@id="payment-method-buttons-container"]/input')
     CONTINUE_BUTTON_PAYMENT_INFO = (By.CSS_SELECTOR, '.button-1.payment-info-next-step-button')
     CONFIRM_ORDER_BUTTON = (By.CSS_SELECTOR, '.button-1.confirm-order-next-step-button')
     ORDER_COMPLETED = (By.CSS_SELECTOR, '.order-completed')
