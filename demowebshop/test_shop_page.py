@@ -26,7 +26,7 @@ def test_user_login(driver):
     home.fill_in_email(data.new_user_email)
     home.fill_in_password(data.password)
     home.confirm_login()
-    home.check_user_account(data.user_email)
+    home.check_user_account(data.new_user_email)
     
     
 def test_computers_group(driver):
