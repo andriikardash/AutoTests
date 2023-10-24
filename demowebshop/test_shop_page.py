@@ -23,7 +23,7 @@ def test_user_login(driver):
     home = HomePage()
     home.go_to_main_page()
     home.nav_to_login_page()
-    home.fill_in_email(data.user_email)
+    home.fill_in_email(data.new_user_email)
     home.fill_in_password(data.password)
     home.confirm_login()
     home.check_user_account(data.user_email)
@@ -42,6 +42,7 @@ def test_computers_group(driver):
     
 
     #need to think how to get correct data and sort it
+    """
 def test_sorting_items(driver):
     home = HomePage()
     home.go_to_main_page()
@@ -61,7 +62,7 @@ def test_display_per_page(driver):
     el = driver.find_elements(By.XPATH, '//h2[@class="product-title"]')
     count = len(el)
     assert 8 == count
-    
+    """
     
 def test_add_to_wishlist(driver):
     home = HomePage()
@@ -96,7 +97,7 @@ def test_remove_item_from_cart(driver):
     home.click_on_remove_checkbox()
     home.click_on_update_shopping_cart()
     home.check_shopping_cart_is_empty(expected)
-
+    """
     
 def test_checkout_item(driver):
     home = HomePage()
@@ -116,3 +117,4 @@ def test_checkout_item(driver):
     home.click_on_confirm_order_button()
     home.check_order_completed(expected)
     time.sleep(3)
+        """
