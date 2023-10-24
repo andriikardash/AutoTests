@@ -62,7 +62,7 @@ def test_display_per_page(driver):
     el = driver.find_elements(By.XPATH, '//h2[@class="product-title"]')
     count = len(el)
     assert 8 == count
-    """
+   """
     
 def test_add_to_wishlist(driver):
     home = HomePage()
@@ -97,7 +97,7 @@ def test_remove_item_from_cart(driver):
     home.click_on_remove_checkbox()
     home.click_on_update_shopping_cart()
     home.check_shopping_cart_is_empty(expected)
-   
+
     
 def test_checkout_item(driver):
     home = HomePage()
@@ -113,8 +113,6 @@ def test_checkout_item(driver):
     home.click_on_checkout_button()
     home.click_on_confirm_continue_billing_address_button()
     home.click_on_confirm_continue_payment_method_button()
-    time.sleep(3)
     home.click_on_confirm_continue_payment_info_button()
     home.click_on_confirm_order_button()
     home.check_order_completed(expected)
-    time.sleep(3)

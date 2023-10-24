@@ -1,10 +1,9 @@
-from tkinter import BROWSE
 from selenium import webdriver
 import pytest
 
 @pytest.fixture
 def driver():
-    browser = 'chrome'
+    browser = 'firefox'
     if browser == 'chrome':
         driver = webdriver.Chrome()
     elif browser == 'firefox':

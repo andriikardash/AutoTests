@@ -3,7 +3,7 @@ import pytest
 
 @pytest.fixture
 def driver():
-    browser = 'firefox'
+    browser = 'chrome'
     if browser == 'chrome':
         driver = webdriver.Chrome()
     elif browser == 'firefox':

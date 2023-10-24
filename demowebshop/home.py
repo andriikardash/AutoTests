@@ -47,7 +47,7 @@ class HomePage(object):
     ZIP_CODE = (By.ID, 'BillingNewAddress_ZipPostalCode')
     PHONE_NUMBER = (By.ID, 'BillingNewAddress_PhoneNumber')
     CONTINUE_BUTTON_BILLING_ADDRESS = (By.CSS_SELECTOR, '.button-1.new-address-next-step-button')
-    CONTINUE_BUTTON_PAYMENT_METHOD = (By.XPATH, "/html/body/div[5]/div[1]/div[4]/div/div/div[2]/ol/li[2]/div[2]/div/input")
+    CONTINUE_BUTTON_PAYMENT_METHOD = (By.XPATH, "//input[@class='button-1 payment-method-next-step-button']")
     CONTINUE_BUTTON_PAYMENT_INFO = (By.CSS_SELECTOR, '.button-1.payment-info-next-step-button')
     CONFIRM_ORDER_BUTTON = (By.CSS_SELECTOR, '.button-1.confirm-order-next-step-button')
     ORDER_COMPLETED = (By.CSS_SELECTOR, '.order-completed')
@@ -203,12 +203,15 @@ class HomePage(object):
         self.wait_for(self.CONTINUE_BUTTON_BILLING_ADDRESS).click()
         
     def click_on_confirm_continue_payment_method_button(self):
+        time.sleep(1)
         self.wait_for(self.CONTINUE_BUTTON_PAYMENT_METHOD).click()
             
     def click_on_confirm_continue_payment_info_button(self):
+        time.sleep(1)
         self.wait_for(self.CONTINUE_BUTTON_PAYMENT_INFO).click()
         
     def click_on_confirm_order_button(self):
+        time.sleep(1)
         self.wait_for(self.CONFIRM_ORDER_BUTTON).click()
             
     def check_order_completed(self, expected):
