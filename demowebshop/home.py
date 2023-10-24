@@ -125,6 +125,7 @@ class HomePage(object):
         sorting.select_by_index(sort_option)
         
     def get_products_titles(self):
+        time.sleep(1)
         return self.wait_for(self.PRODUCTS_TITLE).text
     
     def nav_to_shoes_page(self):

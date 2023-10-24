@@ -4,7 +4,6 @@ import time
 from selenium.webdriver.common.by import By
 import data
 
-
 def test_registration_new_user(driver):
     expected_result = 'Your registration completed'
     home = HomePage()
@@ -53,7 +52,7 @@ def test_sorting_items(driver):
     actual_sorting = home.get_products_titles()
     assert expected_sorting == actual_sorting 
     
-    
+  
 def test_display_per_page(driver):
     home = HomePage()
     home.go_to_main_page()
@@ -62,7 +61,7 @@ def test_display_per_page(driver):
     el = driver.find_elements(By.XPATH, '//h2[@class="product-title"]')
     count = len(el)
     assert 8 == count
-   """
+    """
     
 def test_add_to_wishlist(driver):
     home = HomePage()
