@@ -44,7 +44,7 @@ new_pet = {
     "id": 0,
   "category": {
     "id": 0,
-    "name": "string"
+    "name": "dog"
   },
   "name": "doggie",
   "photoUrls": [
