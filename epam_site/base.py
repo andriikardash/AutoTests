@@ -1,14 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 class BaseView(object):
     
     ACCEPT_COOKIE = (By.XPATH, '//*[@id="onetrust-accept-btn-handler"]')
-    
-
+   
 
     def __init__(self):
         self.driver = webdriver.Chrome()
@@ -31,4 +30,5 @@ class BaseView(object):
         self.find(self.ACCEPT_COOKIE).click()
         
     def get_current_url(self):
+        time.sleep(1)
         return self.driver.current_url
