@@ -1,6 +1,7 @@
 from email.policy import Policy
 from turtle import down
 from selenium import webdriver
+from region import Region
 from home_page import HomePage
 from selenium.webdriver.common.by import By
 from contact_page import ContactPage
@@ -45,11 +46,17 @@ def test_policy_available(driver):
     home.check_policy_available('cookie policy')
     home.check_policy_available('applicant privacy notice')
     home.check_policy_available('web accessibility')
- 
+
+# Check that allow to switch location list by region
 def test_location_region(driver):
-    home = HomePage()
+    home = Region()
     home.nav_to_epam_page()
-    home.check_region_location()
+    home.check_americas_location_list()
+    home.accept_cookie_policy()
+    home.switch_to_emea_region()
+    home.check_emea_location_list()
+    home.switch_to_apac_region()
+    home.check_apac_location_list()
 
 def test_search_func(driver):
     home = HomePage()
@@ -74,4 +81,3 @@ def test_download_file(driver):
     dwnl = Download()
     dwnl.nav_to_epam_about_page()
     dwnl.download_the_file(expected_file)
-   

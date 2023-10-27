@@ -11,7 +11,7 @@ class HomePage(BaseView):
     DARK_LIGHT_TOGGLE = (By.XPATH, '//*[@id="wrapper"]/div[2]/div[1]/header/div/div/section/div')
     GLOBAL_BTN = (By.XPATH, '//*[@id="wrapper"]/div[2]/div[1]/header/div/div/ul/li[2]/div/div/button')
     UKR_LANG_BTN = (By.XPATH, '//*[@class="location-selector__link" and @lang="uk"]')
-    #POLICIES = (By.XPATH, '//*[@class="policies-links-wrapper"]')
+    
 
       
     def get_background_color(self):
@@ -25,26 +25,6 @@ class HomePage(BaseView):
         self.wait_for(self.GLOBAL_BTN).click()
         self.accept_cookie_policy()
         self.wait_for(self.UKR_LANG_BTN).click()
-        time.sleep(2)
-
-    def check_region_location(self):
-        canada = self.driver.find_element(By.XPATH, '//img[@alt="Canada"]')
-        colombia = self.driver.find_element(By.XPATH, '//img[@alt="Colombia"]')
-        d_Republic = self.driver.find_element(By.XPATH, '//img[@alt="Dominican Republic"]')
-        mexico = self.driver.find_element(By.XPATH, '//img[@alt="Mexico"]')
-        time.sleep(2)
-        self.driver.find_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click()
-        self.driver.find_element(By.XPATH, '//a[@data-item="1"]').click()
-        armenia = self.driver.find_element(By.XPATH, '//img[@alt="Armenia"]')
-        austria = self.driver.find_element(By.XPATH, '//img[@alt="Austria"]')
-        belarus = self.driver.find_element(By.XPATH, '//img[@alt="Belarus"]')
-        belgium = self.driver.find_element(By.XPATH, '//img[@alt="Belgium"]')
-        self.driver.find_element(By.XPATH, '//a[@data-item="2"]').click()
-        australia = self.driver.find_element(By.XPATH, '//img[@alt="Australia"]')
-        china = self.driver.find_element(By.XPATH, '//img[@alt="China"]')
-        hong_Kong = self.driver.find_element(By.XPATH, '//img[@alt="Hong Kong SAR"]')
-        india = self.driver.find_element(By.XPATH, '//img[@alt="India"]')
-        assert canada and colombia and d_Republic and mexico and armenia and austria and belarus and belgium and australia and china and hong_Kong and india
 
 
     def check_search_results(self):
