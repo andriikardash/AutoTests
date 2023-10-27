@@ -1,8 +1,7 @@
 from base import BaseView
 from selenium.webdriver.common.by import By
 
-class Region(BaseView):
-    
+class Region(BaseView):    
     LOCATION_LIST = (By.XPATH, '//*[@class="tabs-23__ul-wrapper"]')
     CANADA = (By.XPATH, '//img[@alt="Canada"]')
     COLOMBIA = (By.XPATH, '//img[@alt="Colombia"]')

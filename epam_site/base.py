@@ -4,10 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-class BaseView(object):
-    
-    ACCEPT_COOKIE = (By.XPATH, '//*[@id="onetrust-accept-btn-handler"]')
-   
+class BaseView(object):    
+    ACCEPT_COOKIE = (By.XPATH, '//*[@id="onetrust-accept-btn-handler"]')  
 
     def __init__(self):
         self.driver = webdriver.Chrome()

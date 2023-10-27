@@ -2,8 +2,7 @@ from base import BaseView
 from selenium.webdriver.common.by import By
 import time
 
-class Search(BaseView):
-    
+class Search(BaseView):    
     SEARCH_BTN = (By.XPATH, "//*[contains(@class, 'search-icon') and contains(@class, 'dark-iconheader-search__search-icon')]")
     SEARCH_FIELD = (By.XPATH, '//*[@id="new_form_search"]')
     FIND_BTN = (By.XPATH, '//*[@id="wrapper"]/div[2]/div[1]/header/div/div/ul/li[3]/div/div/form/div[1]/button')
