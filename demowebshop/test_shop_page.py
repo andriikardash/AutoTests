@@ -4,6 +4,8 @@ from register import Register
 from base import Base
 from wishlist import Wishlist
 import data
+from sort import Sort
+from display import Display
 
 #	Verify that allows register a User
 def test_registration_new_user(driver):
@@ -29,7 +31,6 @@ def test_user_login(driver):
     home.confirm_login()
     home.check_user_account(data.existed_user_email)
     
-
 #	Verify that ‘Computers’ group has 3 sub-groups with correct names-
 def test_computers_group(driver):
     home = Computers()
@@ -42,27 +43,25 @@ def test_computers_group(driver):
     accessories = home.get_accessories_subgroup()
     assert "Accessories" == accessories
     
-"""#need to think how to get correct data and sort it
+#   Verify that allows sorting items (different options)
 def test_sorting_items(driver):
-    home = HomePage()
+    home = Sort()
     home.go_to_main_page()
     home.nav_to_books_page()
-    initial_sort_items = home.get_products_titles()
-    expected_sorting = sorted(initial_sort_items)
-    home.sort_by_drop_down(1)
-    actual_sorting = home.get_products_titles()
-    assert expected_sorting == actual_sorting 
+    home.select_sorting_option(1) #sort elements A-Z
+    home.check_sorting_A_Z()
+    home.select_sorting_option(2) #sort elements Z-A
+    home.check_sorting_Z_A() 
  
-  
+# Verify that allows changing number of items on page
 def test_display_per_page(driver):
-    home = HomePage()
+    home = Display()
     home.go_to_main_page()
     home.nav_to_shoes_page()
-    time.sleep(2)
-    el = driver.find_elements(By.XPATH, '//h2[@class="product-title"]')
-    count = len(el)
-    assert 8 == count
-"""  
+    home.select_display_option(0) #Select to dislpay 4 positions
+    home.check_options_displayed(4)
+    home.select_display_option(2) #Select to dislpay 12 positions
+    home.check_options_displayed(12) 
 
 #	Verify that allows adding an item to the Wishlist
 def test_add_to_wishlist(driver):
@@ -88,8 +87,6 @@ def test_add_to_cart(driver):
     home.click_on_add_to_card_button()
     home.check_pop_up(expected)
     
-
-    
 #Verify that allows removing an item from the card
 def test_remove_item_from_cart(driver):
     expected = 'Your Shopping Cart is empty!'  
@@ -100,6 +97,7 @@ def test_remove_item_from_cart(driver):
     home.click_on_remove_checkbox()
     home.click_on_update_shopping_cart()
     home.check_shopping_cart_is_empty(expected)
+    
 #Verify that allows checkout an item 
 def test_checkout_item(driver):
     home = Wishlist()

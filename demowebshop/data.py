@@ -1,6 +1,6 @@
 firstname = "Andrii"
 lastname = 'test'
-new_user_email = 'test+37@gmail.com'
+new_user_email = 'test+42@gmail.com'
 password = 'Welcome1'
 existed_user_email = 'test+5@gmail.com'
 recipient_name = 'John'
