@@ -14,8 +14,8 @@ class Base(object):
     LOGIN_BUTTON = (By.CLASS_NAME, 'ico-login')
     SUBMIT_LOGIN_BUTTON = (By.XPATH, '//input[@type="submit" and @value="Log in"]')
     
-    def __init__(self):
-        self.driver = webdriver.Chrome()
+    def __init__(self, driver):
+        self.driver = driver
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 5)
         

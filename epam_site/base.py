@@ -7,8 +7,8 @@ import time
 class BaseView(object):    
     ACCEPT_COOKIE = (By.XPATH, '//*[@id="onetrust-accept-btn-handler"]')  
 
-    def __init__(self):
-        self.driver = webdriver.Chrome()
+    def __init__(self, driver):
+        self.driver = driver
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 5)
         

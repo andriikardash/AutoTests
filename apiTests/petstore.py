@@ -53,13 +53,16 @@ class Petstore:
         return response
         
 
-    def load_pet_image(self, petId, files):
+    def load_pet_image(self, petId):
+        #image = 'C:\J\download.jpg'
+        #with open(image, 'rb') as img:
+            #files = {'image': (image, img)}
         post_pet_img = f"{self.base_url}/pet/{petId}/uploadImage"
         headers = {
           'accept': 'application/json',
           'Content-Type': 'multipart/form-data'
         }
-        response = requests.post(post_pet_img, files=files, headers=headers)
+        response = requests.post(post_pet_img, files=files)
         return response
     
     def update_pet(self, pet_update):

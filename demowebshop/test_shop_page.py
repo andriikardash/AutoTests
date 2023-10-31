@@ -10,7 +10,7 @@ from display import Display
 #	Verify that allows register a User
 def test_registration_new_user(driver):
     expected_result = 'Your registration completed'
-    home = Register()
+    home = Register(driver)
     home.go_to_main_page()
     home.nav_to_register()
     home.fill_in_first_name(data.firstname)
@@ -23,7 +23,7 @@ def test_registration_new_user(driver):
 
 #	Verify that allows login a User
 def test_user_login(driver):
-    home = Login()
+    home = Login(driver)
     home.go_to_main_page()
     home.nav_to_login_page()
     home.fill_in_email(data.existed_user_email)
@@ -33,7 +33,7 @@ def test_user_login(driver):
     
 #	Verify that ‘Computers’ group has 3 sub-groups with correct names-
 def test_computers_group(driver):
-    home = Computers()
+    home = Computers(driver)
     home.go_to_main_page()
     home.click_on_computers_group()
     desktops = home.get_desktops_subgroup()
@@ -45,7 +45,7 @@ def test_computers_group(driver):
     
 #   Verify that allows sorting items (different options)
 def test_sorting_items(driver):
-    home = Sort()
+    home = Sort(driver)
     home.go_to_main_page()
     home.nav_to_books_page()
     home.select_sorting_option(1) #sort elements A-Z
@@ -55,7 +55,7 @@ def test_sorting_items(driver):
  
 # Verify that allows changing number of items on page
 def test_display_per_page(driver):
-    home = Display()
+    home = Display(driver)
     home.go_to_main_page()
     home.nav_to_shoes_page()
     home.select_display_option(0) #Select to dislpay 4 positions
@@ -65,7 +65,7 @@ def test_display_per_page(driver):
 
 #	Verify that allows adding an item to the Wishlist
 def test_add_to_wishlist(driver):
-    home = Wishlist()
+    home = Wishlist(driver)
     expected = 'The product has been added to your wishlist'
     home.go_to_main_page()
     home.log_in_as_a_user()
@@ -77,7 +77,7 @@ def test_add_to_wishlist(driver):
    
 #Verify that allows adding an item to the card
 def test_add_to_cart(driver):
-    home = Wishlist()
+    home = Wishlist(driver)
     expected = 'The product has been added to your shopping cart'
     home.go_to_main_page()
     home.log_in_as_a_user()
@@ -90,7 +90,7 @@ def test_add_to_cart(driver):
 #Verify that allows removing an item from the card
 def test_remove_item_from_cart(driver):
     expected = 'Your Shopping Cart is empty!'  
-    home = Wishlist()
+    home = Wishlist(driver)
     home.go_to_main_page()
     home.log_in_as_a_user()
     home.nav_to_shopping_cart()
@@ -100,7 +100,7 @@ def test_remove_item_from_cart(driver):
     
 #Verify that allows checkout an item 
 def test_checkout_item(driver):
-    home = Wishlist()
+    home = Wishlist(driver)
     expected = 'Your order has been successfully processed!'
     home.go_to_main_page()
     home.log_in_as_a_user()

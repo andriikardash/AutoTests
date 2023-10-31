@@ -8,14 +8,14 @@ from policy import Policy
 
 # Check the title is correct
 def test_epam_title(driver):
-    home = HomePage()
+    home = HomePage(driver)
     home.nav_to_epam_page()
     TITLE = 'EPAM | Software Engineering & Product Development Services'
     assert home.get_title() == TITLE
   
 # Check the ability to switch Light / Dark mode
 def test_dark_light_mode(driver):
-    home = HomePage()
+    home = HomePage(driver)
     home.nav_to_epam_page()
     initial_color = home.get_background_color()
     home.click_on_dark_light_toggle()
@@ -26,7 +26,7 @@ def test_dark_light_mode(driver):
 # Please note, there is no ukr language. It just redirects you to another page
 def test_change_language_to_ukr(driver):
     ukr_url = 'https://careers.epam.ua/'
-    home = HomePage()
+    home = HomePage(driver)
     home.nav_to_epam_page()
     home.go_to_ukr_page()
     url = home.get_current_url()
@@ -34,7 +34,7 @@ def test_change_language_to_ukr(driver):
    
 # Check the policies list
 def test_policy_available(driver):
-    home = Policy()
+    home = Policy(driver)
     home.nav_to_epam_page()
     home.check_policy_available('investors')
     home.check_policy_available('open source')
@@ -45,7 +45,7 @@ def test_policy_available(driver):
 
 # Check that allow to switch location list by region
 def test_location_region(driver):
-    home = Region()
+    home = Region(driver)
     home.nav_to_epam_page()
     home.check_americas_location_list()
     home.accept_cookie_policy()
@@ -56,7 +56,7 @@ def test_location_region(driver):
 
 # Check the search function
 def test_search_func(driver):
-    home = Search()
+    home = Search(driver)
     home.nav_to_epam_page()
     home.go_to_search_mode()
     home.accept_cookie_policy() 
@@ -65,7 +65,7 @@ def test_search_func(driver):
 
 # Check form's fields validation
 def test_contact_required_fields(driver):  
-    contact = ContactPage()    
+    contact = ContactPage(driver)    
     contact.nav_to_epam_contact_page()
     assert contact.check_first_name_is_required()
     assert contact.check_last_name_is_required()
@@ -77,7 +77,7 @@ def test_contact_required_fields(driver):
 # Check that the Company logo on the header lead to the main page
 def test_company_logo(driver):
     epam_url = 'https://www.epam.com/'    
-    about = ContactPage()
+    about = ContactPage(driver)
     about.nav_to_epam_about_page()
     about.click_epam_logo_button()
     url = about.get_current_url()

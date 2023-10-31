@@ -39,9 +39,9 @@ def test_adding_new_pet(api):
 #Receiving an error I/O operation on closed file. Tried few different approaches but did not work
 """
 def test_add_pet_image(api):
-    response = api.load_pet_image(3, data.img)
+    response = api.load_pet_image(3)
     assert response.status_code == 200, 'image is not uploaded'
-    """
+"""
     
 #•	Verify that allows updating Pet’s name and status
 def test_update_pet(api):
